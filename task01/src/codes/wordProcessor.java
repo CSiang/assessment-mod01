@@ -5,10 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class wordProcessor {
@@ -42,35 +40,10 @@ public class wordProcessor {
         return wordList2;
     }
 
-    // public Map<String, Float> wordMap(List<String> list1) {
-    //     Map<String, Float> wordCountMap = new HashMap<>();
-    //     Integer count, allWords;
-    //     float frequency = 0.00f;
-
-    //     Set<String> set = new HashSet<>(list1);
-    //     List<String> uniqueList = new ArrayList<>(set);
-
-    //     int listLength = list1.size(), setLength = uniqueList.size();
-
-    //     for (int i =0; i < setLength; i++) {
-    //         count = 0;
-    //         String word = uniqueList.get(i);
-    //        for (int j=0; j< listLength; j++) {
-    //         if (word.equals(list1.get(j))) {
-    //             count +=1;
-    //         }
-    //        }
-    //        frequency = Math.round(count/ listLength);
-    //        wordCountMap.put(word,frequency);
-    //     }
-
-    //     return wordCountMap;
-    // }
-
     public List<wordFreq> wordFreqList(List<String> list1) {
         
         List<wordFreq> wordFreq1 = new ArrayList<>();
-        Integer count, allWords;
+        Integer count;
 
         Set<String> set = new HashSet<>(list1);
         List<String> uniqueList = new ArrayList<>(set);
