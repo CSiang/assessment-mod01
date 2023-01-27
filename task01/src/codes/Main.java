@@ -1,40 +1,43 @@
 package codes;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main{
 
-    public static void main(String [] args) {
+    public static void main(String [] args) throws IOException {
 
-        String test = "It is a far, far better thing that I do, than I have ever done;";
-        String test2 = "It is a far, far better rest that I go to that I have ever known.";
-
+        String content;
         wordProcessor wp = new wordProcessor();
 
-        List<String> wordList = wp.removePunctToList(test);
+        content = wp.read("road_not_taken.txt");
+
+        List<String> wordList = wp.removePunctToList(content);
         System.out.println(wordList);
         System.out.printf("Size of wordList is %d.\n",wordList.size());
-        List<String> wordList2 = wp.removePunctToList(test2);
-        System.out.println(wordList2);
-        System.out.printf("Size of wordList2 is %d.\n",wordList2.size());
 
-        Set<String> set = new HashSet<>();
+        List<wordFreq> wordFreq1 = wp.wordFreqList(wordList);
+    
+        System.out.println(wordFreq1);
 
-        set.addAll(wordList);
-        System.out.println("Below is after conversion to set.");
-        System.out.println(set);
-        System.out.printf("Size of set is %d.\n",set.size());
+        List<wordFreq> sortedList = wordFreq1.stream().sorted(Comparator.comparing(wordFreq::getCount).reversed()).collect(Collectors.toList());
 
-        set.addAll(wordList2);
-        System.out.println("Below set after adding wordList2.");
-        System.out.println(set);
-        System.out.printf("Size of set is %d.\n",set.size());
+        System.out.println("Below is the sorted list");
+        System.out.println(sortedList);
 
+        System.out.println("Top 10 words are below:");
+        for(int i= 0; i<10; i++) {
+            System.out.printf("Word: %s, count: %d\n",sortedList.get(i).getWord(), sortedList.get(i).getCount() );
 
-
+        }
 
 
     }
