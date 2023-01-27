@@ -39,12 +39,10 @@ public class calculator {
                     } else if (items[2].equals("$last")) {
                         opn1 = Integer.parseInt(items[0]);
                         opn2 = $last;
-                        System.out.printf("opn2 is %d, $last is %d.\n",opn2, $last);
 
                     } else if (items[0].equals("$last")) {
                         opn1 = $last;
                         opn2 = Integer.parseInt(items[2]);
-                        System.out.printf("opn1 is %d, $last is %d.\n",opn1, $last);
                     }
                 }
                 
