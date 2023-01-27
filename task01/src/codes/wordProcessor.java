@@ -1,10 +1,19 @@
 package codes;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class wordProcessor {
     
-    public String removePunct(String sentence) {
+    public List<String> removePunctToList(String sentence) {
 
-        return sentence.replaceAll("\\p{Punct}", "");
+        sentence = sentence.replaceAll("\\p{Punct}", "").toLowerCase();
+        String[] array1 = sentence.split(" ");
+        List<String> wordList = Arrays.asList(array1);
+
+        return wordList;
     }
+
+
 
 }
