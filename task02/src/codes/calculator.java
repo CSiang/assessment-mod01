@@ -12,7 +12,7 @@ public class calculator {
         Boolean exit = false;
         String input;
         String[] items;
-        int $last=0, opn1=0, opn2=0;
+        float $last=0.0f, opn1=0.0f, opn2=0.0f;
 
         while(!exit) {
             input = cons.readLine("> ");
@@ -27,8 +27,8 @@ public class calculator {
             if (items.length==3) {
 
                 if (!((items[0].equals("$last")) || (items[2].equals("$last")))) {
-                    opn1 = Integer.parseInt(items[0]);
-                    opn2 = Integer.parseInt(items[2]);
+                    opn1 = Float.parseFloat(items[0]);
+                    opn2 = Float.parseFloat(items[2]);
 
                 } else if ((items[0].equals("$last")) || (items[2].equals("$last"))) { 
                     
@@ -37,12 +37,12 @@ public class calculator {
                         opn2 = $last;
 
                     } else if (items[2].equals("$last")) {
-                        opn1 = Integer.parseInt(items[0]);
+                        opn1 = Float.parseFloat(items[0]);
                         opn2 = $last;
 
                     } else if (items[0].equals("$last")) {
                         opn1 = $last;
-                        opn2 = Integer.parseInt(items[2]);
+                        opn2 = Float.parseFloat(items[2]);
                     }
                 }
                 
@@ -74,7 +74,7 @@ public class calculator {
                         System.out.println("Valid operators are + - * //.");
                 } // end of switch
 
-                System.out.println($last);
+                System.out.printf("%.2f\n",$last);
 
         } else {
             System.out.println("Invalid input, input must consist of integer space operator space integer.");
@@ -82,11 +82,7 @@ public class calculator {
 
         }
         } // end of if
-
-
         }// end of while
-
-
 
 
     }
